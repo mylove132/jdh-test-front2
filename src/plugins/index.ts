@@ -1,2 +1,2 @@
-export { setupElement } from '@/plugins/element'
+export { installElementPlus } from '@/plugins/element'
 export { setGlobalComponment } from '@/plugins/registerComponent'

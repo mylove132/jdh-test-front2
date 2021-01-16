@@ -1,0 +1,15 @@
+p{
+    @include px2rem(width,100px);
+    @include px2rem(height,100px);
+    @include px2rem(margin,20px);
+    float:left;
+  }
+  p:first-child{
+    background-color:red;
+  }
+  p:nth-child(2){
+    background-color:#652BF5;
+  }
+  p:last-child{
+    background-color:deepskyblue;
+  }

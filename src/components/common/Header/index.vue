@@ -10,13 +10,17 @@ import { useTheme } from "@/hooks/index";
 import { IThemeStyle } from "@/common/types/common";
 import { IUseTheme } from "@/hooks/useTheme";
 import RadioButton from "@/components/common/element/RadioButton/index.vue";
+import Logo from "@/components/common/Header/Logo/index.vue";
+import Theme from "@/components/common/Header/Theme/index.vue";
 import SuspensionButton from "@/components/common/element/SuspensionButton/index.vue";
 import { SuspensionButtonEntity } from '@/common/dto/index';
 export default defineComponent({
   name: "Header",
   components: {
     RadioButton,
-    SuspensionButton
+    SuspensionButton,
+    Logo,
+    Theme
   },
   setup() {
     const checked = ref<boolean>(false);

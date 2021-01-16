@@ -1,6 +1,13 @@
-<div class="header">
-    <div class="suspension">
-          <suspension-button v-for="item of suspensionButtons" :suspensionButtonData="item" :key="item.getText"></suspension-button >      
-    </div>
-    <loading v-if="loading"></loading>
-  </div>
+  <el-row>
+      <el-col :span="4">
+            <logo></logo>
+      </el-col>
+      <el-col :span="12">
+            <div class="suspension">
+                  <suspension-button v-for="item of suspensionButtons" :suspensionButtonData="item" :key="item.getText"></suspension-button >      
+            </div>
+      </el-col>
+      <el-col :span="8">
+            <theme></theme>
+      </el-col>
+</el-row>

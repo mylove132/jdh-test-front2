@@ -1,0 +1,1 @@
+export { setupElement } from '@/plugins/element'

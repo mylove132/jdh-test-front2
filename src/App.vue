@@ -1,30 +1,41 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <router-view />
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang = 'ts'>
+import { defineComponent, onMounted, reactive, watch } from "vue";
+import { Color } from "./common/contants";
+import { IThemeStyle } from "./common/types/common";
+import { THEME_STYLE } from "./common/types/theme";
+import { useTheme, userLocalStorage } from "./hooks";
+import state from "./store/state";
 
-#nav {
-  padding: 30px;
+export default defineComponent({
+  setup() {
+    const { setThemeList, getThemeStyle } = useTheme();
+    const { getThemeList } = userLocalStorage();
+    let systemTheme = reactive<IThemeStyle>({
+      backgroundColor: Color.WHITE,
+      color: Color.BLACK,
+      text: ""
+    });
+    watch(
+      () => { return state.themeStyle },
+      (themeStyle: THEME_STYLE) => {
+        systemTheme = getThemeStyle(themeStyle);
+      }
+    );
+    onMounted(() => {
+      setThemeList(getThemeList());
+    });
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    return {
+      systemTheme
     }
-  }
-}
+  },
+});
+</script>
+
+<style lang="scss">
+
 </style>

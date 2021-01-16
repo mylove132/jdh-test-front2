@@ -1,0 +1,94 @@
+<template>
+  <div class="header">
+    <div class="suspension">
+          <suspension-button v-for="item of suspensionButtons" :suspensionButtonData="item" :key="item.getText"></suspension-button >      
+    </div>
+    <loading></loading>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, ref, reactive, watch, onMounted, computed } from "vue";
+import { ITheme, THEME_STYLE } from "@/common/types/theme";
+import { store } from "@/store";
+import { SET_THEME } from "@/store/actiontypes";
+import { useTheme } from "@/hooks/index";
+import { IThemeStyle } from "@/common/types/common";
+import { IUseTheme } from "@/hooks/useTheme";
+import RadioButton from "@/components/common/element/RadioButton.vue";
+import SuspensionButton from "@/components/common/element/SuspensionButton.vue";
+import Loading from "@/components/common/element/Loading.vue";
+import { SuspensionButtonEntity } from '@/common/dto/index';
+export default defineComponent({
+  name: "Header",
+  components: {
+    RadioButton,
+    SuspensionButton,
+    Loading
+  },
+  setup() {
+    const checked = ref<boolean>(false);
+    const { addTheme, setThemeList, getThemeStyle }: IUseTheme = useTheme();
+    const themeName = ref<string>("");
+    const themeStyle = ref<THEME_STYLE>(THEME_STYLE.DEFAULT);
+    const themeData = reactive<IThemeStyle>(getThemeStyle(themeStyle.value));
+    const homeSuspensionButtonData: SuspensionButtonEntity = new SuspensionButtonEntity("工具使用");
+    const testSuspensionButtonData: SuspensionButtonEntity = new SuspensionButtonEntity("测试空间");
+    const caseSuspensionButtonData: SuspensionButtonEntity = new SuspensionButtonEntity("自动化");
+    const autoSuspensionButtonData: SuspensionButtonEntity = new SuspensionButtonEntity("用例管理");
+    const pageSuspensionButtonData: SuspensionButtonEntity = new SuspensionButtonEntity("页面管理");
+    const suspensionButtons: SuspensionButtonEntity[] = [homeSuspensionButtonData, testSuspensionButtonData, caseSuspensionButtonData, autoSuspensionButtonData, pageSuspensionButtonData]; 
+
+    const switchTheme = (theme: ITheme): void => {
+      store.dispatch(SET_THEME, theme);
+    };
+
+    const addThemeStyle = (e: KeyboardEvent): void => {
+      if (e.keyCode === 13 && themeName.value.trim().length) {
+        const theme: ITheme = {
+          id: new Date().getTime(),
+          name: themeName.value,
+          style: THEME_STYLE.DEFAULT,
+        };
+        addTheme(theme);
+        themeName.value = "";
+      }
+    };
+    watch(
+      () => {
+        return store.state.themes;
+      },
+      (themes: ITheme[]) => {
+        setThemeList(themes);
+      }
+    );
+    return {
+      themes: computed(() => {
+        return store.state.themes;
+      }),
+      themeName,
+      switchTheme,
+      addThemeStyle,
+      themeStyle,
+      checked,
+      suspensionButtons
+    };
+  },
+});
+</script>
+
+<style lang="scss" scoped>
+.header {
+  width: 100%;
+  height: 300px;
+  box-sizing: border-box;
+  display: grid;
+  height: 100%;
+  //background: #000;
+  padding-top: 25px;
+  .suspension{
+    display: inline-flex;
+    margin-top: 10px;
+  }
+}
+</style>

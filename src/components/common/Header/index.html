@@ -1,0 +1,6 @@
+<div class="header">
+    <div class="suspension">
+          <suspension-button v-for="item of suspensionButtons" :suspensionButtonData="item" :key="item.getText"></suspension-button >      
+    </div>
+    <loading v-if="loading"></loading>
+  </div>

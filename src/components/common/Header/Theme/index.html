@@ -1,0 +1,9 @@
+<div id="bookcaselist">
+    <v-head :title="title" :showBack="showBack"></v-head>
+    <div id="content">
+        <p @click="changeTheme('theme1')"></p>
+        <p @click="changeTheme('theme2')"></p>
+        <p @click="changeTheme('theme3')"></p>
+    </div>
+    <v-foot :activeIndex="3"></v-foot>
+</div>

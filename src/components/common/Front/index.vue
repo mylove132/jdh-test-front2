@@ -1,9 +1,4 @@
-<template>
-    <div>
-        Front
-    </div>
-    
-</template>
+<template src="./index.html"></template>
 
 <script lang = 'ts'>
 import { defineComponent } from "vue";
@@ -13,6 +8,4 @@ export default defineComponent ({
 })
 </script>
 
-<style lang='scss' scoped>
-
-</style>
+<style lang='scss' src="./index.scss" scoped></style>

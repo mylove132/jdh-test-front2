@@ -1,10 +1,4 @@
-<template>
-  <div class="header">
-    <div class="suspension">
-          <suspension-button v-for="item of suspensionButtons" :suspensionButtonData="item" :key="item.getText"></suspension-button >      
-    </div>
-    <loading></loading>
-  </div>
+<template src="./index.html">
 </template>
 
 <script lang="ts">
@@ -15,8 +9,8 @@ import { SET_THEME } from "@/store/actiontypes";
 import { useTheme } from "@/hooks/index";
 import { IThemeStyle } from "@/common/types/common";
 import { IUseTheme } from "@/hooks/useTheme";
-import RadioButton from "@/components/common/element/RadioButton.vue";
-import SuspensionButton from "@/components/common/element/SuspensionButton.vue";
+import RadioButton from "@/components/common/element/RadioButton/index.vue";
+import SuspensionButton from "@/components/common/element/SuspensionButton/index.vue";
 import { SuspensionButtonEntity } from '@/common/dto/index';
 export default defineComponent({
   name: "Header",
@@ -28,6 +22,7 @@ export default defineComponent({
     const checked = ref<boolean>(false);
     const { addTheme, setThemeList, getThemeStyle }: IUseTheme = useTheme();
     const themeName = ref<string>("");
+    const loading = ref<boolean>(false);
     const themeStyle = ref<THEME_STYLE>(THEME_STYLE.DEFAULT);
     const themeData = reactive<IThemeStyle>(getThemeStyle(themeStyle.value));
     const homeSuspensionButtonData: SuspensionButtonEntity = new SuspensionButtonEntity("facebook","/user","fab fa-facebook-f");
@@ -71,25 +66,13 @@ export default defineComponent({
       themes: computed(() => {
         return store.state.themes;
       }),
-      suspensionButtons
+      suspensionButtons,
+      loading
     };
   },
 });
 </script>
 
-<style lang="scss" scoped>
-.header {
-  width: 100%;
-  height: 300px;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  display: grid;
-  height: 100%;
-  background: #ddd;
-  padding-top: 25px;
-  .suspension{
-    display: inline-flex;
-    margin-top: 10px;
-  }
-}
+<style src="./index.scss" lang="scss" scoped>
+
 </style>

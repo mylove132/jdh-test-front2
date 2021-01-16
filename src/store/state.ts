@@ -4,5 +4,6 @@ import { THEME_STYLE } from "@/common/types/theme";
 export default <IState> {
     list: [],
     themes: [],
-    themeStyle: THEME_STYLE.DEFAULT
+    themeStyle: THEME_STYLE.DEFAULT,
+    isLoading: false
 }

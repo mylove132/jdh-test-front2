@@ -22,7 +22,7 @@ export default defineComponent({
     const checked = ref<boolean>(false);
     const { addTheme, setThemeList, getThemeStyle }: IUseTheme = useTheme();
     const themeName = ref<string>("");
-    const loading = ref<boolean>(false);
+    const loading = ref<boolean>(true);
     const themeStyle = ref<THEME_STYLE>(THEME_STYLE.DEFAULT);
     const themeData = reactive<IThemeStyle>(getThemeStyle(themeStyle.value));
     const homeSuspensionButtonData: SuspensionButtonEntity = new SuspensionButtonEntity("facebook","/user","fab fa-facebook-f");

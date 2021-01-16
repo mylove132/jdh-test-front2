@@ -6,6 +6,7 @@ interface IState {
     list: ITodo[];
     themes: ITheme[];
     themeStyle: THEME_STYLE;
+    isLoading: boolean;
 }
 
 interface IThemeStyle {

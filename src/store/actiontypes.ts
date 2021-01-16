@@ -6,3 +6,5 @@ export const ADD_THEME: string = "ADD_THEME";
 export const SET_THEME: string = "SET_THEME";
 //设置主题数组
 export const SET_THEME_LIST: string = "SET_THEME_LIST";
+// 设置loading
+export const SET_LOADING: string = "SET_LOADING";

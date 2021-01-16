@@ -1,8 +1,15 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+import { store } from "@/store"
 
 export default defineComponent({
-    name: "Loading"
+    name: "Loading",
+    setup () {
+        const isLoading = ref<boolean>(store.state.isLoading);
+        return {
+            isLoading
+        }
+    }
 });
 </script>
 <template src="./index.html"></template>

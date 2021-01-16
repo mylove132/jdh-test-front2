@@ -1,4 +1,4 @@
-import SuspensionButtonEntity from "./suspension";
+import SuspensionButtonEntity from './suspension';
 
 export {
     SuspensionButtonEntity

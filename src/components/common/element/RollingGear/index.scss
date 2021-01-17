@@ -1,0 +1,46 @@
+#gearwheel-a {
+  height: 400px;
+  width: 400px;
+  border-radius: 50% 50%;
+  background: -webkit-radial-gradient(circle, SandyBrown 10%, black 10%, black 20%, transparent 20%), -webkit-linear-gradient(90deg, transparent calc(50% - 10px), black calc(50% - 10px), black calc(50% + 10px), transparent calc(50% + 10px)), -webkit-linear-gradient(0deg, transparent calc(50% - 10px), black calc(50% - 10px), black calc(50% + 10px), transparent calc(50% + 10px)), -webkit-radial-gradient(circle, SandyBrown 40%, black 40%, black 60%, transparent 60%), -webkit-linear-gradient(67.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(45deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(22.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(0deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(337.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(315deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(292.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(270deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px));
+  background: radial-gradient(circle, SandyBrown 10%, black 10%, black 20%, transparent 20%), linear-gradient(0deg, transparent calc(50% - 10px), black calc(50% - 10px), black calc(50% + 10px), transparent calc(50% + 10px)), linear-gradient(90deg, transparent calc(50% - 10px), black calc(50% - 10px), black calc(50% + 10px), transparent calc(50% + 10px)), radial-gradient(circle, SandyBrown 40%, black 40%, black 60%, transparent 60%), linear-gradient(22.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(45deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(67.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(90deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(112.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(135deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(157.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(180deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px));
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  -webkit-animation: spin 10s linear infinite;
+  animation: spin 10s linear infinite;
+}
+
+#mech {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 580px;
+  height: 500px;
+}
+html {
+  background: SandyBrown;
+}
+@-webkit-keyframes spin {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+  }
+  100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+  }
+}

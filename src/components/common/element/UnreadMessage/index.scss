@@ -1,12 +1,28 @@
 .red-point{
-  &::before{
-    content: " ";
-    border: 3px solid red;/*设置红色*/
-    border-radius:3px;/*设置圆角*/
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: 30px;
+   .divright {
     position: absolute;
-    z-index: 1000;
-    right: 0%;
-    margin-right: -5px;
-    margin-top: -5px;
+    color: white;
+    font-size: 17px;
+    background-color: red;
+    width: 23px;
+    height: 23px;
+    line-height: 23px;
+    left: 90%;
+    top: -35px;
+    text-align: center;
+    -webkit-border-radius: 24px;
+    border-radius: 24px;
   }
+  .message {
+    margin-top: -20px;
+    width: 30px;
+    height: 30px;
+    font-size: 60px;
+    color: yellow;
+  }
+  
 }

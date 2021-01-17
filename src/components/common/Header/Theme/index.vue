@@ -4,16 +4,11 @@ import UnreadMessage from '@/components/common/element/UnreadMessage/index.vue';
 
 export default defineComponent({
   name: "Theme",
-  props : {
-      UnreadMessage
+  components : {
+      "unread-message": UnreadMessage
   },
   setup(){
-      const changeTheme = (theme: string):void => {
-          window.document.documentElement.setAttribute('data-theme', theme);
-      }
-      return {
-          changeTheme
-      }
+    
   }  
 })
 </script>

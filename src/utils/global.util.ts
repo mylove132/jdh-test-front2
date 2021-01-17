@@ -15,6 +15,13 @@ export class GlobalUtil {
         store.dispatch(SET_LOADING, false)
     }
 
+    static getKeyCode = (e: KeyboardEvent): number => {
+        if (e.key !== undefined) {
+            return Number(e.key)
+        }
+        return e.keyCode;
+    }
+
 }
 
 export default {

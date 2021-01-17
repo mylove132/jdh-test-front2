@@ -8,8 +8,8 @@ import Front from "@/components/common/Front/index.vue";
 export default defineComponent ({
     name: "Home",
     components : {
-        Header,
-        Front
+        "H-header": Header,
+        "H-front": Front
     },
     setup () {
         

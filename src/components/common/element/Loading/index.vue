@@ -13,4 +13,5 @@ export default defineComponent({
 });
 </script>
 <template src="./index.html"></template>
-<style src="./index.css" scoped></style>
+<style lang='scss' src='./index.scss' scoped>
+</style>

@@ -15,7 +15,6 @@ export default defineComponent({
     const suspensionButtonData = reactive<SuspensionButtonEntity>(
       props.suspensionButtonData
     );
-    console.log(suspensionButtonData);
     const href: string =
       suspensionButtonData.getHref == null ? "" : suspensionButtonData.getHref;
     const icon: string =

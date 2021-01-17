@@ -1,8 +1,8 @@
   <el-row class="suspension-header">
-      <el-col :span="2">
-            LOGO
+      <el-col :span="6">
+           <v-logo></v-logo>
       </el-col>
-      <el-col :span="20">
+      <el-col :span="16">
             <div class="suspension">
                   <v-suspension-button v-for="item of suspensionButtons" :suspensionButtonData="item" :key="item.getText"></v-suspension-button >      
             </div>

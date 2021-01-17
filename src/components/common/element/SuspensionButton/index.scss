@@ -7,6 +7,7 @@ a {
   .layer {
     width: 75px;
     height: 75px;
+    color: white;
     transition: transform 0.3s;
     span {
       position: absolute;
@@ -45,21 +46,26 @@ a {
   }
   &:nth-child(4) .layer span {
     border-color: #2867b2;
+    background: #773322;
     box-shadow: -1px 1px 3px #4267b2;
   }
   &:nth-child(5) .layer span {
     border-color: #ff0000;
+    background: #773322;
     box-shadow: -1px 1px 3px #ff0000;
   }
   &:nth-child(1) .layer span {
     border-color: #4267b2;
+    background: #773322;
     box-shadow: -1px 1px 3px #4267b2;
   }
   &:nth-child(2) .layer span {
     border-color: #1da1f2;
+    background: #773322;
     box-shadow: -1px 1px 3px #1da1f2;
   }
   &:nth-child(3) .layer span {
+    background: #773322;
     border-color: #e1306c;
     box-shadow: -1px 1px 3px #e1306c;
   }

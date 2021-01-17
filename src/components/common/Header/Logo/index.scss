@@ -104,9 +104,11 @@
   background-color: rgb(187, 58, 58);
   display: inline-block;
   position: relative;
-  color: white;
   text-align: center;
   font-size: 30px;
+  -webkit-text-stroke:1px #fff;
+  color: transparent;
+
 }
 .clear {
   display: block;

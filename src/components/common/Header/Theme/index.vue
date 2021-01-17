@@ -1,8 +1,12 @@
 <script lang='ts'>
 import { defineComponent } from "vue";
+import UnreadMessage from '@/components/common/element/UnreadMessage/index.vue';
 
 export default defineComponent({
   name: "Theme",
+  props : {
+      UnreadMessage
+  },
   setup(){
       const changeTheme = (theme: string):void => {
           window.document.documentElement.setAttribute('data-theme', theme);

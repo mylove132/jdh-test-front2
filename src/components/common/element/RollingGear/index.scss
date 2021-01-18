@@ -1,46 +1,140 @@
-#gearwheel-a {
-  height: 400px;
-  width: 400px;
-  border-radius: 50% 50%;
-  background: -webkit-radial-gradient(circle, SandyBrown 10%, black 10%, black 20%, transparent 20%), -webkit-linear-gradient(90deg, transparent calc(50% - 10px), black calc(50% - 10px), black calc(50% + 10px), transparent calc(50% + 10px)), -webkit-linear-gradient(0deg, transparent calc(50% - 10px), black calc(50% - 10px), black calc(50% + 10px), transparent calc(50% + 10px)), -webkit-radial-gradient(circle, SandyBrown 40%, black 40%, black 60%, transparent 60%), -webkit-linear-gradient(67.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(45deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(22.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(0deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(337.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(315deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(292.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), -webkit-linear-gradient(270deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px));
-  background: radial-gradient(circle, SandyBrown 10%, black 10%, black 20%, transparent 20%), linear-gradient(0deg, transparent calc(50% - 10px), black calc(50% - 10px), black calc(50% + 10px), transparent calc(50% + 10px)), linear-gradient(90deg, transparent calc(50% - 10px), black calc(50% - 10px), black calc(50% + 10px), transparent calc(50% + 10px)), radial-gradient(circle, SandyBrown 40%, black 40%, black 60%, transparent 60%), linear-gradient(22.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(45deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(67.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(90deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(112.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(135deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(157.5deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px)), linear-gradient(180deg, transparent calc(50% - 19px), black calc(50% - 19px), black calc(50% + 19px), transparent calc(50% + 19px));
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  -webkit-animation: spin 10s linear infinite;
-  animation: spin 10s linear infinite;
+#wrap {
+  margin: 0;
+  padding: 150px;
+  .y0 {
+    -webkit-animation-name: slide1;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: slide1;
+    -moz-animation-duration: 10s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+  }
+  @-webkit-keyframes slide1 {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    50% {
+      -webkit-transform: rotate(180deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @-moz-keyframes slide1 {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+
+    50% {
+      -moz-transform: rotate(180deg);
+    }
+
+    100% {
+      -moz-transform: rotate(360deg);
+    }
+  }
+  .y1 {
+    width: 60px;
+    height: 60px;
+    left: 80px;
+    top: 0px;
+    -webkit-animation-name: slide2;
+    -webkit-animation-duration: 10s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: slide2;
+    -moz-animation-duration: 10s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    span {
+      width: 88px;
+      height: 8px;
+      display: inline-block;
+      background: #0099ff;
+      position: absolute;
+      top: 26px;
+      left: -14px;
+      border-radius: 8px;
+    }
+  }
+  @-webkit-keyframes slide2 {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+
+    50% {
+      -webkit-transform: rotate(-180deg);
+    }
+
+    100% {
+      -webkit-transform: rotate(-360deg);
+    }
+  }
+
+  @-moz-keyframes slide2 {
+    0% {
+      -moz-transform: rotate(0deg);
+    }
+
+    50% {
+      -moz-transform: rotate(-180deg);
+    }
+
+    100% {
+      -moz-transform: rotate(-360deg);
+    }
+  }
+
+  .post {
+    width: 100px;
+    height: 100px;
+    background: #0099ff;
+    border-radius: 200px;
+    display: block;
+    position: relative;
+    span {
+      width: 126px;
+      height: 16px;
+      display: inline-block;
+      background: #0099ff;
+      position: absolute;
+      top: 42px;
+      left: -13px;
+      border-radius: 5px;
+      .s1 {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+      }
+      .s2 {
+        -webkit-transform: rotate(30deg);
+        -moz-transform: rotate(30deg);
+      }
+
+      .s3 {
+        -webkit-transform: rotate(60deg);
+        -moz-transform: rotate(60deg);
+      }
+
+      .s4 {
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+      }
+
+      .s5 {
+        -webkit-transform: rotate(120deg);
+        -moz-transform: rotate(120deg);
+      }
+
+      .s6 {
+        -webkit-transform: rotate(150deg);
+        -moz-transform: rotate(150deg);
+      }
+    }
+  }
 }
 
-#mech {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 580px;
-  height: 500px;
-}
-html {
-  background: SandyBrown;
-}
-@-webkit-keyframes spin {
-  0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
-  }
-  100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
-  }
-  100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
-  }
+.y1 {
 }

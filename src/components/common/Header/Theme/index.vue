@@ -1,14 +1,19 @@
 <script lang='ts'>
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import UnreadMessage from '@/components/common/element/UnreadMessage/index.vue';
+import RollingGear from '@/components/common/element/RollingGear/index.vue';
 
 export default defineComponent({
   name: "Theme",
   components : {
-      "unread-message": UnreadMessage
+      "unread-message": UnreadMessage,
+      "rolling-gear": RollingGear
   },
   setup(){
-    
+    const username = ref<string>('liuzhanhui');
+    return {
+      username
+    }
   }  
 })
 </script>

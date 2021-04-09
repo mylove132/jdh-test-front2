@@ -5,5 +5,6 @@ export default <IState> {
     list: [],
     themes: [],
     themeStyle: THEME_STYLE.DEFAULT,
-    isLoading: false
+    isLoading: false,
+    wsData: {}
 }

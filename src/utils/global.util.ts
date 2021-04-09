@@ -7,11 +7,11 @@ export class GlobalUtil {
 
     }
 
-    showLoading(): void {
+    static showLoading(): void {
         store.dispatch(SET_LOADING, true);
     }
 
-    closeLoading(): void {
+    static closeLoading(): void {
         store.dispatch(SET_LOADING, false)
     }
 

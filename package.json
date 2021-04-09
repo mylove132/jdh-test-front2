@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "dev": "vue-cli-service serve --mode dev"
   },
   "dependencies": {
+    "@types/highcharts": "^7.0.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "element-plus": "^1.0.1-beta.27",
+    "highcharts": "^9.0.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"

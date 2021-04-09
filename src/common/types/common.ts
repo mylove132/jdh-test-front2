@@ -7,6 +7,7 @@ interface IState {
     themes: ITheme[];
     themeStyle: THEME_STYLE;
     isLoading: boolean;
+    wsData: {};
 }
 
 interface IThemeStyle {

@@ -1,5 +1,5 @@
 import { store } from "@/store"
-import { SET_LOADING } from "@/store/actiontypes"
+import { SET_LOADING } from "@/store/loading/actiontypes"
 
 export class GlobalUtil {
 

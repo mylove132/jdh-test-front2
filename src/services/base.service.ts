@@ -1,6 +1,6 @@
 
 import axios, {AxiosInstance, AxiosResponse} from "axios";
-import globalUtil, { GlobalUtil } from "@/utils/global.util";
+import { GlobalUtil } from "@/utils/global.util";
  
 axios.defaults.timeout = 60000 ; // 设置全局请求超时时间
  

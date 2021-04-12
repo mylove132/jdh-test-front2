@@ -2,8 +2,7 @@ import {
     SET_TODO,
     ADD_THEME,
     SET_THEME, 
-    SET_THEME_LIST,
-    SET_LOADING
+    SET_THEME_LIST
 } from './actiontypes';
 import { ITodo } from '@/common/types/todolist';
 import { ITheme, THEME_STYLE } from '@/common/types/theme';
@@ -21,8 +20,5 @@ export default {
     },
     [SET_THEME_LIST](state: IState, themes: ITheme[]): void {
         state.themes = themes;
-    },
-    [SET_LOADING](state: IState, isLoading: boolean): void {
-        state.isLoading = isLoading;
     }
 }

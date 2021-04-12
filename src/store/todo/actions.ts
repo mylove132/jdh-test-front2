@@ -3,8 +3,7 @@ import {
     SET_TODO, 
     ADD_THEME,
     SET_THEME, 
-    SET_THEME_LIST,
-    SET_LOADING
+    SET_THEME_LIST
 } from './actiontypes';
 import { Commit } from 'vuex';
 import { ITheme, THEME_STYLE } from '@/common/types/theme';
@@ -27,8 +26,5 @@ export default {
     },
     [SET_THEME_LIST]( {commit}: Ictx, themes: ITheme[] ): void {
         commit(SET_THEME_LIST, themes);
-    },
-    [SET_LOADING]( {commit}: Ictx, isLoading: boolean ): void {
-        commit(SET_LOADING, isLoading);
     }
 }

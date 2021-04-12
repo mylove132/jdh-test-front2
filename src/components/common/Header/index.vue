@@ -11,7 +11,7 @@ import {
 } from "vue";
 import { ITheme, THEME_STYLE } from "@/common/types/theme";
 import { store } from "@/store";
-import { SET_THEME } from "@/store/actiontypes";
+import { SET_THEME } from "@/store/todo/actiontypes";
 import { useTheme } from "@/hooks/index";
 import { IThemeStyle } from "@/common/types/common";
 import { IUseTheme } from "@/hooks/useTheme";

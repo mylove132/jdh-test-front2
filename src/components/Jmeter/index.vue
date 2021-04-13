@@ -3,14 +3,15 @@
 <script lang='ts'>
 import { defineComponent, ref, reactive} from 'vue';
 import ScriptService from '@/services/modules/script.service';
-import Highcharts from 'highcharts/highstock';
-import HighchartsMore from 'highcharts/highcharts-more';
-import HighchartsDrilldown from 'highcharts/modules/drilldown';
-import Highcharts3D from 'highcharts/highcharts-3d';
-import Highmaps from 'highcharts/modules/map';
+import CPU from '@/components/Highcharts/CPU/index.vue';
+import RAM from '@/components/Highcharts/RAM/index.vue';
 
 export default defineComponent({
   name: "Jmeter",
+  components: {
+    CPU,
+    RAM
+  },
   setup(){
     const showFileList = ref<boolean>(false);
     let scripts = reactive<Scripts>({scriptVOs: []});
@@ -56,12 +57,6 @@ export default defineComponent({
         }
       )
     };
-
-    Highcharts.setOptions({
-      global: {
-      }
-    })
-  
 
     return {
       activeNames,

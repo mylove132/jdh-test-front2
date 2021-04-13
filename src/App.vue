@@ -7,9 +7,8 @@
 
 <script lang = 'ts'>
 import { defineComponent, onMounted, reactive, watch } from "vue";
-import { Color } from "./common/contants";
-import { IThemeStyle } from "./common/types/common";
-import { THEME_STYLE } from "./common/types/theme";
+import { Color } from "./config/contants";
+import { IThemeStyle, THEME_STYLE } from "./config/types/store.dto";
 import { useTheme, userLocalStorage } from "./hooks";
 import state from "./store/state";
 

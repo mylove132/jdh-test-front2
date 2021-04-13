@@ -1,3 +1,0 @@
-interface WsData {
-    msg: string;
-}

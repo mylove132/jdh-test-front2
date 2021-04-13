@@ -1,7 +1,7 @@
-import { ScriptDto } from '@/dto/script.dto';
+import { ScriptDto } from '@/dto/services/script.dto';
 import BaseService from '../base.service';
-import { Response } from '@/dto/base.response';
-import { UploadDto } from '@/dto/upload.dto';
+import { Response } from '@/dto/services/base.response';
+import { UploadDto } from '@/dto/services/upload.dto';
 
 
 class ScriptService extends BaseService {

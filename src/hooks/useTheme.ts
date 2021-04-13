@@ -1,6 +1,5 @@
-import { Color } from "@/common/contants";
-import { IThemeStyle } from "@/common/types/common";
-import { ITheme, THEME_STYLE } from "@/common/types/theme";
+import { Color } from "@/config/contants";
+import { ITheme, IThemeStyle, THEME_STYLE } from "@/config/types/store.dto";
 import { store } from "@/store";
 import { ADD_THEME, SET_THEME, SET_THEME_LIST } from "@/store/todo/actiontypes";
 import { reactive } from "vue";

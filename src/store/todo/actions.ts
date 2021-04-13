@@ -1,4 +1,3 @@
-import {ITodo, TODO_STATUS} from '@/common/types/todolist';
 import { 
     SET_TODO, 
     ADD_THEME,
@@ -6,8 +5,7 @@ import {
     SET_THEME_LIST
 } from './actiontypes';
 import { Commit } from 'vuex';
-import { ITheme, THEME_STYLE } from '@/common/types/theme';
-import { IState } from '@/common/types/common';
+import { IState, ITheme, ITodo, THEME_STYLE } from '@/config/types/store.dto';
 
 interface Ictx {
     commit: Commit;

@@ -4,9 +4,7 @@ import {
     SET_THEME, 
     SET_THEME_LIST
 } from './actiontypes';
-import { ITodo } from '@/common/types/todolist';
-import { ITheme, THEME_STYLE } from '@/common/types/theme';
-import { IState } from '@/common/types/common';
+import { IState, ITheme, ITodo, THEME_STYLE } from '@/config/types/store.dto';
 
 export default {
     [SET_TODO](state: IState, todo: ITodo): void {

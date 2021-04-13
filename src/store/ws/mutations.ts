@@ -1,4 +1,4 @@
-import { IState } from "@/common/types/common";
+import { IState, WsData } from "@/config/types/store.dto";
 import { SET_WS_DATA } from "./actiontypes";
 
 export default {

@@ -2,7 +2,6 @@
 
 <script lang='ts'>
 import { defineComponent, ref, reactive} from 'vue';
-import ScriptService from '@/services/modules/script.service';
 export default defineComponent({
   name: "Init",
   setup(){

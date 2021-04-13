@@ -1,5 +1,5 @@
 import { Commit } from "vuex";
-import { IState } from "@/common/types/common";
+import { IState } from "@/config/types/store.dto";
 import { SET_LOADING } from "./actiontypes";
 
 interface Ictx {

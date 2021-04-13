@@ -9,17 +9,16 @@ import {
   onMounted,
   computed,
 } from "vue";
-import { ITheme, THEME_STYLE } from "@/common/types/theme";
 import { store } from "@/store";
 import { SET_THEME } from "@/store/todo/actiontypes";
 import { useTheme } from "@/hooks/index";
-import { IThemeStyle } from "@/common/types/common";
 import { IUseTheme } from "@/hooks/useTheme";
 import RadioButton from "@/components/common/element/RadioButton/index.vue";
 import Logo from "@/components/common/Header/Logo/index.vue";
 import Theme from "@/components/common/Header/Theme/index.vue";
 import SuspensionButton from "@/components/common/element/SuspensionButton/index.vue";
-import { SuspensionButtonEntity } from "@/common/dto/index";
+import SuspensionButtonEntity from "@/dto/components/suspension";
+import { ITheme, IThemeStyle, THEME_STYLE } from "@/config/types/store.dto";
 export default defineComponent({
   name: "Header",
   components: {

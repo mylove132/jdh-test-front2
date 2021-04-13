@@ -1,5 +1,5 @@
 import { store } from "@/store"
-import { SET_LOADING } from "@/store/actiontypes"
+import { SET_LOADING } from "@/store/loading/actiontypes"
 
 export class GlobalUtil {
 
@@ -7,11 +7,11 @@ export class GlobalUtil {
 
     }
 
-    showLoading(): void {
+    static showLoading(): void {
         store.dispatch(SET_LOADING, true);
     }
 
-    closeLoading(): void {
+    static closeLoading(): void {
         store.dispatch(SET_LOADING, false)
     }
 

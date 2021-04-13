@@ -1,7 +1,7 @@
 
 <script lang="ts">
-import { defineComponent, reactive } from "vue";
-import SuspensionButtonEntity from "@/common/dto/suspension";
+import { defineComponent, reactive } from "vue"
+import SuspensionButtonEntity from '@/dto/components/suspension'
 
 export default defineComponent({
   name: "SuspensionButton",

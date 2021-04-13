@@ -1,13 +1,13 @@
-import { createStore, createLogger, Store as VuexStore } from 'vuex'
-import state from './state';
-import mutations from './mutations';
-import actions from './actions';
-import { IState } from '@/common/types/common';
-
+import { createStore } from 'vuex'
+import { IState } from '@/config/types/store.dto'
+import wsStore from './ws'
+import loadingStore from './loading'
+import todoStore from './todo'
 
 export const store = createStore<IState>({
-  plugins: process.env.NODE_ENV === 'development' ? [createLogger()] : [],
-  state,
-  mutations,
-  actions,
+  modules: {
+    wsStore,
+    loadingStore,
+    todoStore
+  }
 })

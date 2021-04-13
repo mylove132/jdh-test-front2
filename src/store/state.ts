@@ -1,9 +1,9 @@
-import { IState } from "@/common/types/common";
-import { THEME_STYLE } from "@/common/types/theme";
+import { IState, THEME_STYLE } from "@/config/types/store.dto";
 
 export default <IState> {
     list: [],
     themes: [],
     themeStyle: THEME_STYLE.DEFAULT,
-    isLoading: false
+    isLoading: false,
+    wsData: {}
 }

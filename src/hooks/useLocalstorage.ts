@@ -1,5 +1,5 @@
-import { SET_THEME_STYLE, THEME_LIST } from "@/common/contants";
-import { ITheme, THEME_STYLE } from "@/common/types/theme";
+import { SET_THEME_STYLE, THEME_LIST } from "@/config/contants";
+import { ITheme, THEME_STYLE } from "@/config/types/store.dto";
 
 export interface IUseLocalStorage {
     setThemeList: (themes: ITheme[]) => void;

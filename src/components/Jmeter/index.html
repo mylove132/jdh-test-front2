@@ -1,0 +1,42 @@
+<div>
+    <el-row>
+        <el-col :span="12">
+            <el-upload class="upload-demo" 
+            auto-upload 
+            drag 
+            action="#"
+            :before-upload="checkFile"
+            :show-file-list="showFileList"
+            :http-request="uploadFile"
+            multiple>
+                <i class="el-icon-upload"></i>
+                <div class="el-upload__text">将脚本拖到此处，或<em>点击上传</em></div>
+            </el-upload>
+        </el-col>
+        <el-col>
+            <el-collapse v-model="activeNames" v-show="scripts.scriptVOs.length > 0">
+                <el-collapse-item :title="item.name" :name="item.name" v-for = "item of scripts.scriptVOs">
+                    <el-form class="demo-form-inline">
+                        <el-row class="upload-form">
+                            <el-form-item label="线程数">
+                                <el-input v-model="item.threadNum" placeholder="线程数"></el-input>
+                              </el-form-item>
+                              <el-form-item label="压测时长">
+                                  <el-input v-model="item.stressTime" placeholder="压测时长"></el-input>
+                                </el-form-item>
+                              <el-form-item>
+                                <el-button type="primary" @click="saveScript(item)" style="margin-top: 35px;margin-left: 10px;">保存脚本</el-button>
+                              </el-form-item>
+                        </el-row>
+                      </el-form>
+                </el-collapse-item>
+              </el-collapse>
+        </el-col>
+    </el-row>
+    <el-row>
+        <CPU></CPU>
+    </el-row>
+    <el-row style="margin-top: 5px;">
+        <RAM></RAM>
+    </el-row>
+</div>

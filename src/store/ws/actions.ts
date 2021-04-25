@@ -1,6 +1,7 @@
-import { IState, WsData } from "@/config/types/store.dto";
+import { IState } from "@/domain/type/state";
 import { Commit } from "vuex";
 import { SET_WS_DATA } from "./actiontypes";
+import { WsData } from "./type";
 
 interface Ictx {
     commit: Commit;

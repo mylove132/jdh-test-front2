@@ -2,9 +2,9 @@
 </template>
 
 <script>
-import { defineComponent, onMounted } from "vue";
-import Highcharts from "highcharts";
-import Drilldown from "highcharts/modules/drilldown";
+import { defineComponent, onMounted } from "vue"
+import Highcharts from "highcharts"
+import Drilldown from "highcharts/modules/drilldown"
  
 export default defineComponent({
   name: "CPU",

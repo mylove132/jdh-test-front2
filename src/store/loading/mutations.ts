@@ -1,4 +1,4 @@
-import { IState } from "@/config/types/store.dto";
+import { IState } from "@/domain/type/state";
 import { SET_LOADING } from "./actiontypes";
 
 export default {

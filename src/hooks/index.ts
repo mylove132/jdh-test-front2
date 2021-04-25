@@ -1,9 +1,7 @@
 import userLocalStorage from "./useLocalstorage"
-import useTheme from "./useTheme"
-import useWebsocket from "./websocket"
+import useWebsocket from "./useWebsocket"
 
 export {
     userLocalStorage,
-    useTheme,
     useWebsocket
 }

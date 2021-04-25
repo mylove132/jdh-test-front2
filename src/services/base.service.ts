@@ -1,9 +1,8 @@
 
-import axios, {AxiosInstance, AxiosResponse} from "axios";
-import { GlobalUtil } from "@/utils/global.util";
+import axios, {AxiosInstance, AxiosResponse} from "axios"
+import { GlobalUtil } from "@/utils/global.util"
  
 axios.defaults.timeout = 60000 ; // 设置全局请求超时时间
- 
 axios.defaults.baseURL = process.env.VUE_APP_BaseURL // 设置全局请求基地址
  
 export default class BaseService {

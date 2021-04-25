@@ -1,7 +1,7 @@
 <script lang='ts'>
-import { defineComponent, ref } from "vue";
-import UnreadMessage from '@/components/common/element/UnreadMessage/index.vue';
-import RollingGear from '@/components/common/element/RollingGear/index.vue';
+import { defineComponent, ref } from "vue"
+import UnreadMessage from '@/components/common/element/UnreadMessage/index.vue'
+import RollingGear from '@/components/common/element/RollingGear/index.vue'
 
 export default defineComponent({
   name: "Theme",

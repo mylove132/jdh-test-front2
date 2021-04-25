@@ -1,9 +1,6 @@
-import { SET_THEME_STYLE, THEME_LIST } from "@/config/contants";
-import { ITheme, THEME_STYLE } from "@/config/types/store.dto";
-
 export interface IUseLocalStorage {
-    setThemeList: (themes: ITheme[]) => void;
-    getThemeList: () => ITheme[];
+    setLocalStorage: (localKey: string, localValue: string) => void;
+    getLocalStorage: (localKey: string) => string;
 }
 
 /**
@@ -11,21 +8,16 @@ export interface IUseLocalStorage {
  */
 function userLocalStorage(): IUseLocalStorage {
 
-    function setThemeStyle(themeStyle: THEME_STYLE): void {
-        localStorage.setItem(SET_THEME_STYLE, themeStyle);
+    function setLocalStorage(localKey: string, localValue: string): void {
+        localStorage.setItem(localKey, localValue);
     }
 
-    function setThemeList(themes: ITheme[]): void {
-        localStorage.setItem(THEME_LIST, JSON.stringify(themes));
+    function getLocalStorage(localKey: string): string {
+        return localStorage.getItem(localKey)!;
     }
-
-    function getThemeList(): ITheme[] {
-        return JSON.parse(localStorage.getItem(THEME_LIST) || "[]");
-    }
-
     return {
-        setThemeList,
-        getThemeList
+        setLocalStorage,
+        getLocalStorage
     }
 }
 

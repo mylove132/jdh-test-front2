@@ -1,7 +1,7 @@
 <template src="./index.html"></template>
 <script>
-import { defineComponent, onMounted } from "vue";
-import Highcharts from "highcharts";
+import { defineComponent, onMounted } from "vue"
+import Highcharts from "highcharts"
 
 export default defineComponent({
   name: "RAM",

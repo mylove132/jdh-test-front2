@@ -1,10 +1,10 @@
 <template src="./index.html"></template>
 
 <script lang='ts'>
-import { defineComponent, ref, reactive} from 'vue';
-import ScriptService from '@/services/modules/script.service';
-import CPU from '@/components/Highcharts/CPU/index.vue';
-import RAM from '@/components/Highcharts/RAM/index.vue';
+import { defineComponent, ref, reactive} from 'vue'
+import ScriptService from '@/services/modules/script.service'
+import CPU from '@/components/Highcharts/CPU/index.vue'
+import RAM from '@/components/Highcharts/RAM/index.vue'
 
 export default defineComponent({
   name: "Jmeter",

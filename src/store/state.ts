@@ -1,9 +1,6 @@
-import { IState, THEME_STYLE } from "@/config/types/store.dto";
+import { IState } from "@/domain/type/state";
 
 export default <IState> {
-    list: [],
-    themes: [],
-    themeStyle: THEME_STYLE.DEFAULT,
     isLoading: false,
     wsData: {}
 }

@@ -1,7 +1,7 @@
-import { ScriptDto } from '@/dto/services/script.dto';
+import { ScriptPojo, UploadScriptPojo } from '@/domain/services/script.domain';
 import BaseService from '../base.service';
-import { Response } from '@/dto/services/base.response';
-import { UploadDto } from '@/dto/services/upload.dto';
+import { Response } from '@/domain/services/base.response';
+import { addScript, queryScript, uploadScript } from '@/api/script';
 
 
 class ScriptService extends BaseService {
@@ -11,9 +11,9 @@ class ScriptService extends BaseService {
      * @param scriptId 
      * @returns 
      */
-    queryScriptById(scriptId: number): Promise<Response<ScriptDto>> {
-        return this.get<{}, Response<ScriptDto>>(
-            "script/"+scriptId,{}
+    queryScriptById(scriptId: number): Promise<Response<ScriptPojo>> {
+        return this.get<{}, Response<ScriptPojo>>(
+            queryScript + scriptId,{}
         );
     };
 
@@ -23,8 +23,8 @@ class ScriptService extends BaseService {
      * @param headers 
      * @returns 
      */
-    jmxFileUpload(params: FormData, headers: {}): Promise<Response<UploadDto>> {
-        return this.postForHeaders<FormData, Response<UploadDto>>("script/upload", params, headers);
+    jmxFileUpload(params: FormData, headers: {}): Promise<Response<UploadScriptPojo>> {
+        return this.postForHeaders<FormData, Response<UploadScriptPojo>>(uploadScript, params, headers);
     }
 
     /**
@@ -32,9 +32,9 @@ class ScriptService extends BaseService {
      * @param script 
      * @returns 
      */
-    saveScript(script: ScriptDto): Promise<Response<boolean>>{
-        return this.post<ScriptDto, Response<boolean>>(
-            "/script/add", script
+    saveScript(script: ScriptPojo): Promise<Response<boolean>>{
+        return this.post<ScriptPojo, Response<boolean>>(
+            addScript, script
         )
     };
 

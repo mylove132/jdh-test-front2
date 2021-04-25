@@ -1,4 +1,7 @@
-class SuspensionButtonEntity {
+/**
+ * 定义悬浮按钮类
+ */
+export class SuspensionButtonEntity {
     private href?: string;
     private icon?: string;
     private text: string;

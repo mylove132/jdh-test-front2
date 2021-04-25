@@ -1,13 +1,11 @@
 import { createStore } from 'vuex'
-import { IState } from '@/config/types/store.dto'
 import wsStore from './ws'
 import loadingStore from './loading'
-import todoStore from './todo'
+import { IState } from '@/domain/type/state'
 
 export const store = createStore<IState>({
   modules: {
     wsStore,
-    loadingStore,
-    todoStore
+    loadingStore
   }
 })

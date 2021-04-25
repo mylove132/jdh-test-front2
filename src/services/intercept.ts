@@ -19,8 +19,6 @@ const instance = axios.create({
     responseType: 'json'
 });
 
-const globaUtil: GlobalUtil = new GlobalUtil();
-
 // 移除重复请求
 const removePending = (config: AxiosRequestConfig) => {
     for (const key in pending) {
@@ -39,7 +37,7 @@ const removePending = (config: AxiosRequestConfig) => {
 // 添加请求拦截器
 instance.interceptors.request.use(
     request => {
-        globaUtil.showLoading();
+        GlobalUtil.showLoading();
         removePending(request);
         request.cancelToken = new CancelToken((c) => {
             pending.push({ url: request.url, method: request.method, params: request.params, data: request.data, cancel: c });
@@ -54,12 +52,12 @@ instance.interceptors.request.use(
 // 添加响应拦截器
 instance.interceptors.response.use(
     response => {
-        globaUtil.closeLoading();
+        GlobalUtil.closeLoading();
         removePending(response.config);
         return response;
     },
     error => {
-        globaUtil.closeLoading();
+        GlobalUtil.closeLoading();
         const response = error.response;
 
         // 根据返回的code值来做不同的处理(和后端约定)

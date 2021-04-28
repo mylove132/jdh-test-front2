@@ -1,0 +1,1 @@
+export const JAVA_CODE_LIST_LOCAL_KEY: string = "JAVA_CODE_LIST_LOCAL_KEY";

@@ -1,5 +1,4 @@
-import { store } from "@/store"
-import { SET_LOADING } from "@/store/loading/actiontypes"
+import { LoadingModule } from "@/store/modules/loading";
 
 export class GlobalUtil {
 
@@ -8,11 +7,11 @@ export class GlobalUtil {
     }
 
     static showLoading(): void {
-        store.dispatch(SET_LOADING, true);
+        LoadingModule.dispatchReduce(true);
     }
 
     static closeLoading(): void {
-        store.dispatch(SET_LOADING, false)
+        LoadingModule.dispatchReduce(false);
     }
 
     static getKeyCode = (e: KeyboardEvent): number => {

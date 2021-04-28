@@ -3,17 +3,18 @@
 
 <script lang = 'ts'>
 import { defineComponent } from "vue"
-import Header from "@/components/common/Header/index.vue"
-import Front from "@/components/common/Front/index.vue"
-import Content from "@/components/common/Content/index.vue"
 import { useWebsocket } from '@/hooks'
 import { IHandleMessage } from "@/hooks/useWebsocket"
+import Header from "@/components/Home/Header/index.vue"
+import Content from "@/components/Home/Content/index.vue"
+import Sidebar from "@/components/Home/Sidebar/index.vue"
+
 export default defineComponent({
   name: "Home",
   components: {
     "H-header": Header,
     "H-content": Content,
-    "H-front": Front,
+    "H-Sidebar": Sidebar,
   },
   setup() {
     let list: [] = [];

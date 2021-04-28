@@ -1,11 +1,7 @@
-import { createStore } from 'vuex'
-import wsStore from './ws'
-import loadingStore from './loading'
-import { IState } from '@/domain/type/state'
+import Vuex from 'vuex'
 
-export const store = createStore<IState>({
-  modules: {
-    wsStore,
-    loadingStore
-  }
+const store = new Vuex.Store({
 })
+
+
+export default store

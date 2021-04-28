@@ -19,7 +19,9 @@
     "core-js": "^3.6.5",
     "element-plus": "^1.0.1-beta.27",
     "highcharts": "^9.0.1",
+    "monaco-editor": "^0.23.0",
     "vue": "^3.0.0",
+    "vue-jss": "0.0.4",
     "vue-router": "^4.0.0-0",
     "vue3-code-editor": "0.0.12",
     "vuex": "^4.0.0-0",
@@ -33,10 +35,10 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-plugin-component": "^1.1.1",
-    "vue-codemirror": "^4.0.6",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
-    "typescript": "~3.9.3"
+    "typescript": "~3.9.3",
+    "vue-codemirror": "^4.0.6"
   },
   "browserslist": [
     "> 1%",

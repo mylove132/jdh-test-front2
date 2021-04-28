@@ -1,14 +1,19 @@
 <template src="./index.html"></template>
 
 <script lang="ts">
-import { useJavaCode } from "@/hooks";
-import { JavaCodeModule } from "@/store/modules/javacode";
+import { JAVA_CODE_LIST_LOCAL_KEY } from "@/domain/common";
+import { useJavaCode, userLocalStorage } from "@/hooks";
+import { Code } from "@/store/modules/type";
 import { computed, defineComponent, ref, watch } from "vue";
 export default defineComponent({
   name: "Content",
   components: {},
   setup() {
     const { addJavaCode } = useJavaCode();
+    const { getLocalStorage } = userLocalStorage();
+    let codeList = computed(() => {
+        return JSON.parse(getLocalStorage(JAVA_CODE_LIST_LOCAL_KEY));
+      });
     function copyCode () {
       addJavaCode({
          name: "请输入名称",
@@ -18,9 +23,7 @@ export default defineComponent({
        })
     }
     return {
-      codeList: computed(() => {
-        return JavaCodeModule.codeList;
-      }),
+      codeList,
       copyCode
     };
   },

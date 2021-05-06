@@ -1,8 +1,11 @@
-// 查询脚本
-export const queryScript = "/api/script/";
+// 查询jmeter脚本
+export const queryJmeterScript = "/api/script/";
 
-// 上传脚本
-export const uploadScript = "/api/script/upload/";
+// 上传jmeter脚本
+export const uploadJmeterScript = "/api/script/upload/";
 
-// 上传脚本
-export const addScript = "/api/script/add/";
+// 添加jmeter脚本
+export const addJmeterScript = "/api/script/add/";
+
+// 查询ui脚本列表
+export const queryUIScriptList = "/api/ui-script/list";

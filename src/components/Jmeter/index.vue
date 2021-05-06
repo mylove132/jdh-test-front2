@@ -2,7 +2,7 @@
 
 <script lang='ts'>
 import { defineComponent, ref, reactive} from 'vue'
-import ScriptService from '@/services/modules/script.service'
+import ScriptService from '@/services/modules/jmeter-script.service'
 import CPU from '@/components/common/Highcharts/CPU/index.vue'
 import RAM from '@/components/common/Highcharts/RAM/index.vue'
 
@@ -23,7 +23,7 @@ export default defineComponent({
       }
     };
     function saveScript(script: ScriptVO){
-      ScriptService.saveScript({
+      ScriptService.saveJmeterScript({
         scriptName: script.name!,
         stressTime: script.stressTime,
         threadNum: script.threadNum,

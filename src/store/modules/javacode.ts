@@ -20,9 +20,18 @@ class JavaCodeStore extends VuexModule {
         this.codeList = [payload, ...this.codeList];
     }
 
+    @Mutation
+    private delJavaCodeItem (payload: Code) {
+    }
+
     @Action
-  	public dispatchReduce(payload: Code) {
+  	public dispatchAddReduce(payload: Code) {
     	this.addJavaCodeItem(payload);
+  	}
+
+    @Action
+  	public dispatchDelReduce(payload: Code) {
+    	this.delJavaCodeItem(payload);
   	}
 
 }

@@ -1,7 +1,7 @@
 /**
- * 脚本接口数据
+ * jmeter脚本接口数据
  */
-interface ScriptPojo {
+interface JmeterScriptPojo {
     scriptId?: number;
     scriptName: string;
     threadNum: number;
@@ -11,14 +11,14 @@ interface ScriptPojo {
 }
 
 /**
- * 上传脚本接口数据
+ * 上传jmeter脚本接口数据
  */
-interface UploadScriptPojo {
+interface UploadJmeterScriptPojo {
     name: string;
     md5: string;
 }
 
 export {
-    ScriptPojo,
-    UploadScriptPojo
+    JmeterScriptPojo,
+    UploadJmeterScriptPojo
 }

@@ -6,17 +6,18 @@ import { useJavaCode, userLocalStorage } from "@/hooks";
 import { computed, defineComponent, reactive, ref } from "vue";
 import { VAceEditor } from "vue3-ace-editor";
 import "ace-builds/src-noconflict/ext-language_tools";
+import { Code } from "@/store/modules/type";
 export default defineComponent({
   name: "Content",
   components: {
     VAceEditor,
   },
   setup() {
-    const state = reactive({
-      content: "please write code",
-    });
+    // 脚本初始样式
     const theme = ref<string>("cobalt");
+    // 脚本初始语言
     const lang = ref<string>("java");
+
     const { addJavaCode } = useJavaCode();
     const { getLocalStorage } = userLocalStorage();
     let codeList = computed(() => {
@@ -34,14 +35,13 @@ export default defineComponent({
         return JSON.parse(localCodeList);
       }
     });
-    function copyCode() {
-      addJavaCode({
-        name: "请输入名称",
-        lang: "java",
-        code: "请输入代码",
-        desc: "请输入描述",
-      });
+    function copyCode(item: Code) {
+      addJavaCode(item);
     }
+    function delScript(item: Code) {
+
+    }
+    
     return {
       lang,
       theme,
@@ -174,7 +174,6 @@ export default defineComponent({
         fontSize: 16,
         showPrintMargin: false, //去除编辑器里的竖线
       },
-      state,
       codeList,
       copyCode,
     };

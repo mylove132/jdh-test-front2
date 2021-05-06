@@ -6,8 +6,8 @@ import { Code } from './type'
 class JavaCodeStore extends VuexModule {
     codeList: Code[] = [{
         name: "",
-        theme: "",
         code: "",
+        lang: "",
         desc: ""
     }]
 

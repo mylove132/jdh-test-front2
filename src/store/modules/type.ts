@@ -1,8 +1,8 @@
 export interface Code {
   name: string;
   code: string;
+  lang: string;
   desc?: string;
-  theme: string;
 }
 
 export interface WsData {

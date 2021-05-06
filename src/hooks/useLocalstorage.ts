@@ -1,5 +1,6 @@
 export interface IUseLocalStorage {
     setLocalStorage: (localKey: string, localValue: string) => void;
+    delLocalStorage: (localKey: string) => void;
     getLocalStorage: (localKey: string) => string;
 }
 
@@ -12,11 +13,16 @@ function userLocalStorage(): IUseLocalStorage {
         localStorage.setItem(localKey, localValue);
     }
 
+    function delLocalStorage(localKey: string): void {
+        localStorage.removeItem(localKey);
+    }
+
     function getLocalStorage(localKey: string): string {
         return localStorage.getItem(localKey)!;
     }
     return {
         setLocalStorage,
+        delLocalStorage,
         getLocalStorage
     }
 }

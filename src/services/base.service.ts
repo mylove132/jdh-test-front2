@@ -3,7 +3,7 @@ import axios, {AxiosInstance, AxiosResponse} from "axios"
 import { GlobalUtil } from "@/utils/global.util"
  
 axios.defaults.timeout = 60000 ; // 设置全局请求超时时间
-axios.defaults.baseURL = process.env.VUE_APP_BaseURL // 设置全局请求基地址
+axios.defaults.baseURL = process.env.VUE_APP_BASEURL // 设置全局请求基地址
  
 export default class BaseService {
     private spinningAxios = axios.create(); // 建立请求时会产生全局Loading的axios实例

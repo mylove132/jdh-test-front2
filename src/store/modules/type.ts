@@ -1,4 +1,5 @@
 export interface Code {
+  id?: number;
   name: string;
   code: string;
   lang: string;

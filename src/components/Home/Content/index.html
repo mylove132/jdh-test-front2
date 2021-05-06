@@ -44,49 +44,43 @@
         </div>
       </div>
     </div>
-    <div v-for="item in codeList" class="row" style="background-color: #ff9900;border-radius: 5px;box-shadow: 10px 10px 5px #888888;margin-top: 25px;">
-        <div style="width: 100%;">
-          <el-row style="padding-top: 15px;padding-left: 10px;">
-            <el-form :inline="true" class="demo-form-inline">
-              <el-form-item label="脚本名称">
-                <el-input v-model="item.name" placeholder="脚本名称"></el-input>
-              </el-form-item>
-              <el-form-item label="脚本描述">
-                <el-input v-model="item.desc" placeholder="脚本描述"></el-input>
-              </el-form-item>
-              <el-form-item label="语言选择">
-                <el-select v-model="lang" placeholder="请选择">
-                  <el-option
-                    v-for="im in langList"
-                    :key="im.value"
-                    :label="im.label"
-                    :value="im.value">
-                  </el-option>
-                </el-select>
-              </el-form-item>
-              <el-form-item label="样式选择">
-                <el-select v-model="theme" placeholder="请选择">
-                  <el-option
-                    v-for="item in themeList"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                  </el-option>
-                </el-select>
-              </el-form-item>
-              <el-form-item>
-                <el-button type="primary" @click="copyCode(item)" icon="el-icon-plus">复制</el-button>
-              </el-form-item>
-              <el-form-item>
-                <el-button type="danger" v-show="codeList.length > 1"  @click="delScript(item)" icon="el-icon-delete">删除</el-button>
-              </el-form-item>
-            </el-form>
-          </el-row>
-          <el-row>
-            <v-ace-editor v-model:value="item.code" v-model:lang="lang" v-model:theme="theme" :options=editorOptions
-              style="height: 300px;width: 100%;" />
-          </el-row>
-        </div>
+    <div v-for="item in codeList" class="row"
+      style="background-color: #ff9900;border-radius: 5px;box-shadow: 10px 10px 5px #888888;margin-top: 25px;">
+      <div style="width: 100%;">
+        <el-row style="padding-top: 15px;padding-left: 10px;">
+          <el-form :inline="true" class="demo-form-inline">
+            <el-form-item label="脚本名称">
+              <el-input v-model="item.name" placeholder="脚本名称"></el-input>
+            </el-form-item>
+            <el-form-item label="脚本描述">
+              <el-input v-model="item.desc" placeholder="脚本描述"></el-input>
+            </el-form-item>
+            <el-form-item label="语言选择">
+              <el-select v-model="item.lang" placeholder="请选择" @change="changeLang($event, item)">
+                <el-option v-for="ll in langList" :key="ll.value" :label="ll.label" :value="ll.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="样式选择">
+              <el-select v-model="item.theme" placeholder="请选择">
+                <el-option v-for="tl in themeList" :key="tl.value" :label="tl.label" :value="tl.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="copyCode(item)" icon="el-icon-plus">复制</el-button>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="danger" v-show="codeList.length > 1" @click="delScript(item)" icon="el-icon-delete">删除
+              </el-button>
+            </el-form-item>
+          </el-form>
+        </el-row>
+        <el-row>
+          <v-ace-editor v-model:value="item.code" v-model:lang="lang" v-model:theme="item.theme" :options=editorOptions
+            style="height: 300px;width: 100%;" />
+        </el-row>
+      </div>
     </div>
   </div>
 </div>

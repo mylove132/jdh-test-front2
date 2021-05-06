@@ -3,45 +3,75 @@
 <script lang="ts">
 import { JAVA_CODE_LIST_LOCAL_KEY } from "@/domain/common";
 import { useJavaCode, userLocalStorage } from "@/hooks";
-import { computed, defineComponent, reactive, ref } from "vue";
+import { computed, defineComponent, ref } from "vue";
 import { VAceEditor } from "vue3-ace-editor";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { Code } from "@/store/modules/type";
+import UIScriptService from "@/services/modules/ui-script.service";
+
 export default defineComponent({
   name: "Content",
   components: {
     VAceEditor,
   },
   setup() {
+    // 脚本列表
+    let rqCodeList: Code[] = [];
+    const { addJavaCode, delJavaCode, updateJavaCode } = useJavaCode();
     // 脚本初始样式
     const theme = ref<string>("cobalt");
     // 脚本初始语言
     const lang = ref<string>("java");
 
-    const { addJavaCode } = useJavaCode();
+    // 请求UI脚本列表
+    UIScriptService.queryUIScriptListService().then((response) => {
+      if (response.code === 10000 && response.data != null) {
+        rqCodeList = response.data;
+        rqCodeList.forEach((code) => {
+          addJavaCode(code);
+        });
+      }
+    });
+
+    // 获取local中脚本列表
     const { getLocalStorage } = userLocalStorage();
-    let codeList = computed(() => {
+    const defaultCode: Code = {
+      name: "",
+      code: "",
+      lang: "java",
+      desc: "",
+      theme: ""
+    };
+
+    // 计算local中脚本列表
+    const codeList = computed(() => {
       const localCodeList = getLocalStorage(JAVA_CODE_LIST_LOCAL_KEY);
       if (localCodeList === null) {
-        return [
-          {
-            name: "",
-            code: "请输入代码",
-            lang: "java",
-            desc: "",
-          },
-        ];
+        return [defaultCode];
       } else {
         return JSON.parse(localCodeList);
       }
     });
+
+    // 复制脚本
     function copyCode(item: Code) {
       addJavaCode(item);
     }
-    function delScript(item: Code) {
 
+    function changeLang(event: string, item: Code) {
+      item.lang = event;
+      updateJavaCode(item);
+      console.log(item)
     }
-    
+
+    // 删除脚本
+    function delScript(item: Code) {
+      if (item.id !== null) {
+        // todo 请求删除脚本
+      }
+      delJavaCode(item);
+    }
+
     return {
       lang,
       theme,
@@ -118,35 +148,35 @@ export default defineComponent({
           value: "kr_theme",
           label: "kr_theme",
         },
-         {
+        {
           value: "kuroir",
           label: "kuroir",
         },
-         {
+        {
           value: "merbivore",
           label: "merbivore",
         },
-         {
+        {
           value: "merbivore_soft",
           label: "merbivore_soft",
         },
-         {
+        {
           value: "mono_industrial",
           label: "mono_industrial",
         },
-         {
+        {
           value: "monokai",
           label: "monokai",
         },
-         {
+        {
           value: "nord_dark",
           label: "nord_dark",
         },
-         {
+        {
           value: "one_dark",
           label: "one_dark",
         },
-         {
+        {
           value: "tomorrow_night_eighties",
           label: "tomorrow_night_eighties",
         },
@@ -176,6 +206,7 @@ export default defineComponent({
       },
       codeList,
       copyCode,
+      changeLang
     };
   },
 });

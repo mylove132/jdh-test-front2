@@ -2,7 +2,7 @@
 
 <script lang='ts'>
 import { defineComponent, ref, reactive} from 'vue'
-import ScriptService from '@/services/modules/jmeter-script.service'
+import JmeterScriptService from '@/services/modules/jmeter-script.service'
 import CPU from '@/components/common/Highcharts/CPU/index.vue'
 import RAM from '@/components/common/Highcharts/RAM/index.vue'
 
@@ -23,7 +23,7 @@ export default defineComponent({
       }
     };
     function saveScript(script: ScriptVO){
-      ScriptService.saveJmeterScript({
+      JmeterScriptService.saveJmeterScriptService({
         scriptName: script.name!,
         stressTime: script.stressTime,
         threadNum: script.threadNum,
@@ -36,7 +36,7 @@ export default defineComponent({
             "Content-type": "multipart/form-data"
           };
       formData.set("file", file.file);
-      ScriptService.jmxFileUpload(formData, headers).then(
+      JmeterScriptService.jmxFileUploadService(formData, headers).then(
         response => {
           if (response.code === 10000) {
             scripts.scriptVOs.push(

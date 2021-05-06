@@ -13,7 +13,7 @@ class JmeterScriptService extends BaseService {
      * @param scriptId 
      * @returns 
      */
-    queryJmeterScriptById(jmeterScriptId: number): Promise<Response<JmeterScriptPojo>> {
+    queryJmeterScriptByIdService(jmeterScriptId: number): Promise<Response<JmeterScriptPojo>> {
         return this.get<{}, Response<JmeterScriptPojo>>(
             queryJmeterScript + jmeterScriptId,{}
         );
@@ -25,7 +25,7 @@ class JmeterScriptService extends BaseService {
      * @param headers 
      * @returns 
      */
-    jmxFileUpload(params: FormData, headers: {}): Promise<Response<UploadJmeterScriptPojo>> {
+    jmxFileUploadService(params: FormData, headers: {}): Promise<Response<UploadJmeterScriptPojo>> {
         return this.postForHeaders<FormData, Response<UploadJmeterScriptPojo>>(uploadJmeterScript, params, headers);
     }
 
@@ -34,7 +34,7 @@ class JmeterScriptService extends BaseService {
      * @param script 
      * @returns 
      */
-    saveJmeterScript(script: JmeterScriptPojo): Promise<Response<boolean>>{
+    saveJmeterScriptService(script: JmeterScriptPojo): Promise<Response<boolean>>{
         return this.post<JmeterScriptPojo, Response<boolean>>(
             addJmeterScript, script
         )

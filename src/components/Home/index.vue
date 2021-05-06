@@ -3,8 +3,6 @@
 
 <script lang = 'ts'>
 import { defineComponent } from "vue"
-import { useWebsocket } from '@/hooks'
-import { IHandleMessage } from "@/hooks/useWebsocket"
 import Header from "@/components/Home/Header/index.vue"
 import Content from "@/components/Home/Content/index.vue"
 import Sidebar from "@/components/Home/Sidebar/index.vue"
@@ -19,16 +17,6 @@ export default defineComponent({
   },
   setup() {
     let list: [] = [];
-    const useWs = useWebsocket();
-    const ws: WebSocket = useWs.createWebSocket("/ws/1");
-    function handleMessage(): IHandleMessage {
-      const handleMessage = (message: any) =>{
-        console.log("------------------------")
-        console.log(message);
-      }
-      return {handleMessage};
-    }
-    useWs.bindEvent(ws, handleMessage());
     return {
       list
     };

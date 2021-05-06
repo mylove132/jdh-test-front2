@@ -33,7 +33,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-, "src/setting.js"  ],
+, "src/setting.js", "src/mock/index.js", "src/mock/api/ui-script.js", "src/utils/formatOptions.js"  ],
   "exclude": [
     "node_modules"
   ]

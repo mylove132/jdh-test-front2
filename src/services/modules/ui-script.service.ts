@@ -1,6 +1,6 @@
 import BaseService from '../base.service';
 import { Response } from '@/domain/services/base.response';
-import { queryUIScriptList } from '@/api/script';
+import { queryUIScriptList, runUIScript } from '@/api/script';
 import { Code } from '@/store/modules/type';
 
 /**
@@ -15,6 +15,16 @@ class UIScriptService extends BaseService {
     queryUIScriptListService(): Promise<Response<Code[]>> {
         return this.get<{}, Response<Code[]>>(
             queryUIScriptList,{}
+        );
+    };
+
+    /**
+     * 查询UI脚本列表
+     * @returns 
+     */
+     runUIScriptService(lang: string, code: String): Promise<Response<string>> {
+        return this.post<{}, Response<string>>(
+            runUIScript,{"lang": lang, "code": code}
         );
     };
 }

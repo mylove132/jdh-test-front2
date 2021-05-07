@@ -2,7 +2,7 @@
 
 <script lang="ts">
 import { useJavaCode } from "@/hooks";
-import { defineComponent, onMounted, reactive, ref } from "vue";
+import { defineComponent, onMounted, reactive } from "vue";
 import { VAceEditor } from "vue3-ace-editor";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { Code } from "@/store/modules/type";
@@ -14,7 +14,6 @@ export default defineComponent({
     VAceEditor,
   },
   setup() {
-    // 脚本列表
     const { addJavaCode, delJavaCode, updateJavaCode } = useJavaCode();
     let state = reactive({
       themeList: [
@@ -148,22 +147,21 @@ export default defineComponent({
       },
       codeList: reactive<Code[]>([])
     })
-    const defaultCode: Code = {
-      name: "",
-      code: "",
-      lang: "java",
-      desc: "",
-      theme: "",
-    };
     onMounted(async() => {
       // 请求UI脚本列表
       const result = await UIScriptService.queryUIScriptListService();
       state.codeList = result.data ? result.data.filter((item,index)=>{
         item.theme = "cobalt";
         return item;
-      }) : [defaultCode];
+      }) : [];
     });
-
+    /**
+     * 运行UI脚本
+     */
+    async function runUiScript (lang: string, code: string) {
+      const result = await UIScriptService.runUIScriptService(lang, code);
+      console.log("运行脚本结果："+result);
+    }
     // 复制脚本
     function copyCode(item: Code) {
       addJavaCode(item);
@@ -185,6 +183,7 @@ export default defineComponent({
 
     return {
       state,
+      runUiScript,
       copyCode,
       changeLang,
     };

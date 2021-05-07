@@ -48,7 +48,7 @@
       <el-table :data="state.codeList" style="width: 100%">
         <el-table-column type="expand">
           <template #default="props" style="width: 100%;">
-            <el-row style="background-color: #ff9900;border-radius: 5px;box-shadow: 10px 10px 5px #888888;">
+            <el-row style="background-color: rgba(255,153,0,0.6);border-radius: 5px;box-shadow: 10px 10px 5px #888888;">
               <el-form label-position="left" inline class="demo-table-expand" style="padding-top: 20px;padding-left: 20px;">
                 <el-form-item label="样式选择">
                   <el-select v-model="props.row.theme" placeholder="请选择">
@@ -60,7 +60,7 @@
                   <el-tag  effect="dark">{{ props.row.lang }}</el-tag>
                 </el-form-item>
                 <el-form-item style="margin-left: 150px;">
-                  <el-button  type="primary" icon="el-icon-caret-right"></el-button>
+                  <el-button  type="primary" icon="el-icon-caret-right" @click="runUiScript(props.row.lang, props.row.code)"></el-button>
                 </el-form-item>
               </el-form>
             </el-row>

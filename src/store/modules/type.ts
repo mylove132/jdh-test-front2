@@ -5,7 +5,6 @@ export interface Code {
   lang: string;
   theme: string;
   desc?: string;
-  status? number;
 }
 
 export interface WsData {

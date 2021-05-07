@@ -1,9 +1,8 @@
 <template src="./index.html"></template>
 
 <script lang="ts">
-import { JAVA_CODE_LIST_LOCAL_KEY } from "@/domain/common";
-import { useJavaCode, userLocalStorage } from "@/hooks";
-import { computed, defineComponent, ref } from "vue";
+import { useJavaCode } from "@/hooks";
+import { defineComponent, onMounted, reactive, ref } from "vue";
 import { VAceEditor } from "vue3-ace-editor";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { Code } from "@/store/modules/type";
@@ -16,65 +15,8 @@ export default defineComponent({
   },
   setup() {
     // 脚本列表
-    let rqCodeList: Code[] = [];
     const { addJavaCode, delJavaCode, updateJavaCode } = useJavaCode();
-    // 脚本初始样式
-    const theme = ref<string>("cobalt");
-    // 脚本初始语言
-    const lang = ref<string>("java");
-
-    // 请求UI脚本列表
-    UIScriptService.queryUIScriptListService().then((response) => {
-      if (response.code === 10000 && response.data != null) {
-        rqCodeList = response.data;
-        rqCodeList.forEach((code) => {
-          addJavaCode(code);
-        });
-      }
-    });
-
-    // 获取local中脚本列表
-    const { getLocalStorage } = userLocalStorage();
-    const defaultCode: Code = {
-      name: "",
-      code: "",
-      lang: "java",
-      desc: "",
-      theme: ""
-    };
-
-    // 计算local中脚本列表
-    const codeList = computed(() => {
-      const localCodeList = getLocalStorage(JAVA_CODE_LIST_LOCAL_KEY);
-      if (localCodeList === null) {
-        return [defaultCode];
-      } else {
-        return JSON.parse(localCodeList);
-      }
-    });
-
-    // 复制脚本
-    function copyCode(item: Code) {
-      addJavaCode(item);
-    }
-
-    function changeLang(event: string, item: Code) {
-      item.lang = event;
-      updateJavaCode(item);
-      console.log(item)
-    }
-
-    // 删除脚本
-    function delScript(item: Code) {
-      if (item.id !== null) {
-        // todo 请求删除脚本
-      }
-      delJavaCode(item);
-    }
-
-    return {
-      lang,
-      theme,
+    let state = reactive({
       themeList: [
         {
           value: "chrome",
@@ -195,7 +137,7 @@ export default defineComponent({
           label: "javascript",
         },
       ],
-      editorOptions: {
+       editorOptions: {
         enableBasicAutocompletion: true,
         enableSnippets: true,
         enableLiveAutocompletion: true,
@@ -204,9 +146,47 @@ export default defineComponent({
         fontSize: 16,
         showPrintMargin: false, //去除编辑器里的竖线
       },
-      codeList,
+      codeList: reactive<Code[]>([])
+    })
+    const defaultCode: Code = {
+      name: "",
+      code: "",
+      lang: "java",
+      desc: "",
+      theme: "",
+    };
+    onMounted(async() => {
+      // 请求UI脚本列表
+      const result = await UIScriptService.queryUIScriptListService();
+      state.codeList = result.data ? result.data.filter((item,index)=>{
+        item.theme = "cobalt";
+        return item;
+      }) : [defaultCode];
+    });
+
+    // 复制脚本
+    function copyCode(item: Code) {
+      addJavaCode(item);
+    }
+
+    function changeLang(event: string, item: Code) {
+      item.lang = event;
+      updateJavaCode(item);
+      console.log(item);
+    }
+
+    // 删除脚本
+    function delScript(item: Code) {
+      if (item.id !== null) {
+        // todo 请求删除脚本
+      }
+      delJavaCode(item);
+    }
+
+    return {
+      state,
       copyCode,
-      changeLang
+      changeLang,
     };
   },
 });

@@ -11,8 +11,7 @@
         </span>
       </div>
     </div>
-
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-4 stretch-card grid-margin">
         <div class="card bg-gradient-danger card-img-holder text-white">
           <div class="card-body">
@@ -43,13 +42,14 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="row">
       <el-table :data="state.codeList" style="width: 100%">
         <el-table-column type="expand">
           <template #default="props" style="width: 100%;">
             <el-row style="background-color: rgba(255,153,0,0.6);border-radius: 5px;box-shadow: 10px 10px 5px #888888;">
-              <el-form label-position="left" inline class="demo-table-expand" style="padding-top: 20px;padding-left: 20px;">
+              <el-form label-position="left" inline class="demo-table-expand"
+                style="padding-top: 20px;padding-left: 20px;">
                 <el-form-item label="样式选择">
                   <el-select v-model="props.row.theme" placeholder="请选择">
                     <el-option v-for="tl in state.themeList" :key="tl.value" :label="tl.label" :value="tl.value">
@@ -57,10 +57,11 @@
                   </el-select>
                 </el-form-item>
                 <el-form-item label="脚本语言" style="margin-left: 100px;">
-                  <el-tag  effect="dark">{{ props.row.lang }}</el-tag>
+                  <el-tag effect="dark">{{ props.row.lang }}</el-tag>
                 </el-form-item>
                 <el-form-item style="margin-left: 150px;">
-                  <el-button  type="primary" icon="el-icon-caret-right" @click="runUiScript(props.row.lang, props.row.code)"></el-button>
+                  <el-button type="primary" icon="el-icon-caret-right"
+                    @click="runUiScript(props.row.lang, props.row.code)"></el-button>
                 </el-form-item>
               </el-form>
             </el-row>
@@ -76,10 +77,11 @@
         </el-table-column>
         <el-table-column label="脚本描述" prop="desc">
         </el-table-column>
-        <el-table-column label="操作">
+        <el-table-column #default="cls" label="操作">
           <el-row>
             <el-col :span=10>
-              <el-button type="primary" icon="el-icon-scissors" size="small" round>复制</el-button>
+              <el-button type="primary" icon="el-icon-scissors" size="small" @click="copyCode(cls.row)" round>复制
+              </el-button>
             </el-col>
             <el-col :span=8>
               <el-button type="danger" icon="el-icon-delete" size="small" round>删除</el-button>
@@ -87,6 +89,11 @@
           </el-row>
         </el-table-column>
       </el-table>
+    </div>
+    <div class="row">
+      <el-drawer title="我是标题" v-model="state.drawer" direction="btt" destroy-on-close>
+        <span>我来啦!</span>
+      </el-drawer>
     </div>
     <!-- <div v-for="item in codeList" class="row"
       style="background-color: #ff9900;border-radius: 5px;box-shadow: 10px 10px 5px #888888;margin-top: 25px;">

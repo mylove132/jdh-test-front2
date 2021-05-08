@@ -145,7 +145,8 @@ export default defineComponent({
         fontSize: 16,
         showPrintMargin: false, //去除编辑器里的竖线
       },
-      codeList: reactive<Code[]>([])
+      codeList: reactive<Code[]>([]),
+      drawer: false
     })
     onMounted(async() => {
       // 请求UI脚本列表
@@ -162,9 +163,11 @@ export default defineComponent({
       const result = await UIScriptService.runUIScriptService(lang, code);
       console.log("运行脚本结果："+result);
     }
+    
     // 复制脚本
     function copyCode(item: Code) {
-      addJavaCode(item);
+      state.drawer = true;
+      console.log(item)
     }
 
     function changeLang(event: string, item: Code) {

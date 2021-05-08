@@ -2,7 +2,7 @@
 
 <script lang="ts">
 import { useJavaCode } from "@/hooks";
-import { defineComponent, onMounted, reactive } from "vue";
+import { defineComponent, onMounted, reactive, ref } from "vue";
 import { VAceEditor } from "vue3-ace-editor";
 import "ace-builds/src-noconflict/ext-language_tools";
 import { Code } from "@/store/modules/type";
@@ -146,7 +146,8 @@ export default defineComponent({
         showPrintMargin: false, //去除编辑器里的竖线
       },
       codeList: reactive<Code[]>([]),
-      drawer: false
+      drawer: false,
+      copyCodeItem: ref<Code>()
     })
     onMounted(async() => {
       // 请求UI脚本列表
@@ -167,6 +168,7 @@ export default defineComponent({
     // 复制脚本
     function copyCode(item: Code) {
       state.drawer = true;
+      state.copyCodeItem = item;
       console.log(item)
     }
 

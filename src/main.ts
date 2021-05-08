@@ -5,6 +5,8 @@ import store  from '@/store'
 import { installElementPlus } from '@/plugins/'
 import 'element-plus/lib/theme-chalk/index.css';
 import BaseService from '@/services/base.service'
+import 'default-passive-events'
+
 // 初始化axios请求
 new BaseService();
 const app = createApp(App);

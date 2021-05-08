@@ -1,19 +1,8 @@
-import { LoadingModule } from "@/store/modules/loading";
-
 export class GlobalUtil {
 
     showError(err: string): void {
 
     }
-
-    static showLoading(): void {
-        LoadingModule.dispatchReduce(true);
-    }
-
-    static closeLoading(): void {
-        LoadingModule.dispatchReduce(false);
-    }
-
     static arrRemoveJson<T>(arr: T[], attr: string, value: any): T[] {
         if (!arr || arr.length == 0) {
             return []

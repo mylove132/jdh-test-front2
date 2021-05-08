@@ -66,8 +66,8 @@
               </el-form>
             </el-row>
             <el-row style="border-radius: 5px;box-shadow: 10px 10px 5px #888888;">
-              <v-ace-editor v-model:value="props.row.code" v-model:lang="props.row.lang" v-model:theme="props.row.theme"
-                :options=state.editorOptions style="height: 300px;width: 100%;" />
+              <VAceEditor v-model:value="props.row.code" v-model:lang="props.row.lang" v-model:theme="props.row.theme"
+                :options=state.editorOptions style="height: 300px;width: 100%;"> </VAceEditor>
             </el-row>
           </template>
         </el-table-column>
@@ -90,11 +90,37 @@
         </el-table-column>
       </el-table>
     </div>
+
     <div class="row">
-      <el-drawer title="我是标题" v-model="state.drawer" direction="btt" destroy-on-close>
-        <span>我来啦!</span>
+      <el-drawer title="copy" size="70%" v-model="state.drawer" direction="btt" destroy-on-close>
+        <el-row style="background-color: rgba(255,153,0,0.6);border-radius: 5px;box-shadow: 10px 10px 5px #888888;">
+          <el-form label-position="left" inline class="demo-table-expand"
+            style="padding-top: 20px;padding-left: 20px;">
+            <el-form-item label="样式选择">
+              <el-select v-model="state.copyCodeItem.theme" placeholder="请选择">
+                <el-option v-for="tl in state.themeList" :key="tl.value" :label="tl.label" :value="tl.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="语言选择" style="margin-left: 100px;">
+              <el-select v-model="state.copyCodeItem.lang" placeholder="请选择">
+                <el-option v-for="tl in state.langList" :key="tl.value" :label="tl.label" :value="tl.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item style="margin-left: 150px;">
+              <el-button type="primary" icon="el-icon-caret-right"
+                @click="runUiScript(state.copyCodeItem.lang, state.copyCodeItem.code)"></el-button>
+            </el-form-item>
+          </el-form>
+        </el-row>
+        <el-row style="border-radius: 5px;box-shadow: 10px 10px 5px #888888;">
+          <v-ace-editor v-model:value="state.copyCodeItem.code" v-model:lang="state.copyCodeItem.lang" v-model:theme="state.copyCodeItem.theme"
+            :options=state.editorOptions style="height: 500px;width: 100%;" />
+        </el-row>
       </el-drawer>
     </div>
+   
     <!-- <div v-for="item in codeList" class="row"
       style="background-color: #ff9900;border-radius: 5px;box-shadow: 10px 10px 5px #888888;margin-top: 25px;">
       <div style="width: 100%;">

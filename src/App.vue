@@ -1,15 +1,16 @@
 <template>
 <div>
-     <Header></Header>
+     <Home></Home>
+     
 </div>
 </template>
 
 <script lang = 'ts'>
 import { defineComponent } from "vue";
-import Header from "@/components/Home/index.vue"
+import Home from "@/components/Home/index.vue"
 export default defineComponent({
   components:{
-    "Header": Header
+    "Home": Home
   },
   setup() {
     return {

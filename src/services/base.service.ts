@@ -1,10 +1,13 @@
 
 import axios, {AxiosInstance, AxiosResponse} from "axios"
-import { GlobalUtil } from "@/utils/global.util"
- 
+import { ElLoading } from 'element-plus';
+import { nextTick } from "vue";
+
 axios.defaults.timeout = 60000 ; // 设置全局请求超时时间
 axios.defaults.baseURL = process.env.VUE_APP_BASEURL // 设置全局请求基地址
- 
+//定于loading服务
+let loadingService: any;
+
 export default class BaseService {
     private spinningAxios = axios.create(); // 建立请求时会产生全局Loading的axios实例
     private noSpinningAxios = axios.create(); // 建立请求时不会产生全局Loading的axios实例
@@ -19,7 +22,7 @@ export default class BaseService {
             // 对全局请求的options进行更改，例如增加动态头部信息等
             if(loading)
             {
-                GlobalUtil.showLoading();
+                loadingService = ElLoading.service({fullscreen: true,spinner: 'el-icon-loading', background: 'rgba(53, 54, 58, 0.7)'});
             }
             return options;
         },error => {
@@ -38,7 +41,10 @@ export default class BaseService {
     private static outError(error: any, loading: boolean): Promise<string> {
         if(loading)
         {
-            GlobalUtil.closeLoading();
+            nextTick(()=>{
+                loadingService.close();
+            })
+            
         }
         const { response = {} } = error;
         return Promise.reject(response.statusText || (error && error.toString()) || "未知错误");
@@ -47,20 +53,19 @@ export default class BaseService {
     private static disposeResponse(response: AxiosResponse, loading: boolean): AxiosResponse | Promise<any> {
         if(loading)
         {
-            GlobalUtil.closeLoading();
+            nextTick(()=>{
+                loadingService.close();
+            })
         }
         // 对接口返回的数据进行判断，例如接口中 code 的值 200为成功，500为失败，401为未登录时进行各个操作，此处可以使用枚举
         const { data } = response;
         switch (data.code) {
-            // case insideStatus.success:  // 200
-            //     return response;
-            // case insideStatus.error: // 500
-            //     return Promise.reject(data.msg);
-            // case insideStatus.noLogin: // 401
-            //     this.utils.toLogin();
-            //     return Promise.reject(data.msg);
-            // default:
-            //     return Promise.reject(data.msg);
+             case 50000:
+                return Promise.reject(data.msg);
+             case 50001:
+                return Promise.reject(data.msg);
+            case 50002:
+                return Promise.reject(data.msg); 
             default: return response; //示例数据，请自行剔除
         }
     }

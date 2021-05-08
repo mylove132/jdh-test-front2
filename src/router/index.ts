@@ -7,7 +7,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Home',
     component: Home,
-    redirect: "/index",
     children: [
       {
         path: '/jmeter',
